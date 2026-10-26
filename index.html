@@ -346,7 +346,7 @@
 <div id="fpInvoiceModal" class="hidden" style="position:fixed;inset:0;background:#071b34aa;z-index:999999;overflow:auto;padding:22px"><div class="card" style="max-width:760px;margin:30px auto"><div class="card-head"><h2 id="fpInvoiceTitle">مسودة فاتورة</h2><button class="btn red" onclick="fpInvoiceClose()">إغلاق</button></div><p id="fpInvoiceHint" class="muted"></p><div id="fpInvoiceLines"></div><div class="actions" style="margin:12px 0"><button id="fpAddLine" class="btn light" onclick="fpInvoiceAddLine()">+ إضافة بند</button><b id="fpInvoiceTotal"></b></div><div class="actions"><button id="fpSaveDraft" class="btn" onclick="fpInvoiceSave('save')">حفظ المسودة</button><button id="fpSubmitDraft" class="btn orange" onclick="fpInvoiceSave('submit')">إرسال للإدارة</button><button id="fpApproveDraft" class="btn green" onclick="fpInvoiceAction('approve')">اعتماد</button><button id="fpIssueDraft" class="btn green" onclick="fpInvoiceAction('issue')">إصدار الفاتورة</button><button id="fpPrintDraft" class="btn light" onclick="fpInvoicePrint()">طباعة / PDF</button></div><p id="fpInvoiceError" style="color:#c00;margin-top:12px"></p></div></div>
 <div id="fpSettlementAdminList" class="actions" style="margin:15px"></div><div id="printArea" class="invoice-print"></div>
 <script>
-const CONFIG={SUPABASE_URL:'',SUPABASE_ANON_KEY:''};
+const CONFIG={SUPABASE_URL:'https://ezguziztpeymceanhnpc.supabase.co',SUPABASE_ANON_KEY:'sb_publishable_47k8pdMvbLY9jGN_anxBow_PkoLHECJ'};
 const KEYS={ORD:'toprank_orders_v2',TECH:'toprank_techs_v2',COMP:'toprank_companies_v1',USERS:'toprank_users_v2',SESSION:'toprank_session_v2',KNOWN:'toprank_known_orders_v2',NEW:'toprank_new_orders_v2',ALERTS:'toprank_alert_records_v2'};
 let sb=null, chart=null, cloudEnabled=false, pulling=false;
 let currentUserRole='admin', currentTechnicianId=null, currentCompanyId=null, currentUserProfile=null;
@@ -1655,7 +1655,7 @@ async function fpSubmitTransfer(){
   await refreshFromCloud(false);
   toast('تم نقل الطلب للفني الجديد وإزالته من طلبات الفني السابق');
  }catch(e){message.textContent='لم يتم التحويل: '+(e.message||e)}finally{btn.disabled=false}
-} 
+}
 
 </script>
 <style id="fpSettlementStyle">#fpSettlementModal{position:fixed;inset:0;background:#06172da8;z-index:999999;display:grid;place-items:center;padding:15px}#fpSettlementModal.hidden{display:none!important}.fps-box{background:white;border-radius:22px;padding:24px;width:min(500px,100%);max-height:95vh;overflow:auto;box-shadow:0 25px 80px #001a3d55}.fps-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}.fps-box input,.fps-box textarea{width:100%;border:1px solid #dbe5f2;border-radius:11px;padding:12px;margin-top:5px}.fps-box label{font-weight:800}.fps-note{background:#f1f7ff;border-radius:12px;padding:12px;line-height:1.9;margin:12px 0}</style>
