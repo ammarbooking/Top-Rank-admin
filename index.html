@@ -234,8 +234,8 @@
         <div class="page-title"><div><h1>لوحة التحكم</h1><p>ملخص الطلبات والفواتير والفنيين</p></div><button class="btn light" onclick="refreshFromCloud()">تحديث البيانات</button></div>
         <div class="kpis">
 <div class="kpi"><div><h4>الشركات المسجلة</h4><strong id="kCompanies">0</strong><p>كل شركات التشغيل</p></div><div class="kicon ki-blue">🏢</div></div>
-<div class="kpi"><div><h4>شركات المنطقة الجنوبية</h4><strong id="kSouthCompanies">0</strong><p>الشركات النشطة بالجنوب</p></div><div class="kicon ki-green">📍</div></div>
-<div class="kpi"><div><h4>شركات المنطقة الشرقية</h4><strong id="kEastCompanies">0</strong><p>الشركات النشطة بالشرقية</p></div><div class="kicon ki-orange">📍</div></div>
+<div class="kpi"><div><h4>شركات المنطقة الوسطى</h4><strong id="kSouthCompanies">0</strong><p>الشركات النشطة بالوسطى</p></div><div class="kicon ki-green">📍</div></div>
+<div class="kpi"><div><h4>شركات المنطقة الغربية</h4><strong id="kEastCompanies">0</strong><p>الشركات النشطة بالغربية</p></div><div class="kicon ki-orange">📍</div></div>
 <div class="kpi"><div><h4>فنيون مرتبطون بشركات</h4><strong id="kCompanyTechs">0</strong><p>جاهزون للإسناد</p></div><div class="kicon ki-purple">👷</div></div>
 </div>
 <div class="kpis">
@@ -250,8 +250,8 @@
           <div class="side-cards"><div class="card amount primary"><div class="round">📊</div><div><small>إجمالي الإيرادات</small><b id="sideTotal">0.00 ر.س</b></div></div><div class="card amount"><div class="round">📈</div><div><small>صافي الربح التقريبي</small><b id="netProfit">0.00 ر.س</b></div></div><div class="card amount"><div class="round">⏱</div><div><small>طلبات تحتاج متابعة</small><b id="needFollow">0</b></div></div></div>
         </div>
         <div class="section-grid" style="margin-bottom:16px">
-          <div class="card"><div class="card-head"><h3>🏢 تشغيل المنطقة الجنوبية</h3><button class="link" onclick="showPage('companies')">إدارة الشركات</button></div><div id="southCompanyDashboard" class="list-card"></div></div>
-          <div class="card"><div class="card-head"><h3>🏢 تشغيل المنطقة الشرقية</h3><button class="link" onclick="showPage('companies')">إدارة الشركات</button></div><div id="eastCompanyDashboard" class="list-card"></div></div>
+          <div class="card"><div class="card-head"><h3>🏢 تشغيل المنطقة الوسطى</h3><button class="link" onclick="showPage('companies')">إدارة الشركات</button></div><div id="southCompanyDashboard" class="list-card"></div></div>
+          <div class="card"><div class="card-head"><h3>🏢 تشغيل المنطقة الغربية</h3><button class="link" onclick="showPage('companies')">إدارة الشركات</button></div><div id="eastCompanyDashboard" class="list-card"></div></div>
         </div>
         <div class="lower">
           <div class="card"><div class="card-head"><h3>توزيع الحالات</h3></div><div class="donut"><div class="donut-circle"><div class="donut-text">إجمالي<br><span id="donutTotal">0</span></div></div><div class="legend"><div class="leg"><span><i class="dot green"></i> مكتملة</span><b id="donePercent">0%</b></div><div class="leg"><span><i class="dot orange"></i> قيد التنفيذ</span><b id="workPercent">0%</b></div><div class="leg"><span><i class="dot red"></i> متأخرة</span><b id="latePercent">0%</b></div></div></div></div>
@@ -260,8 +260,8 @@
         </div>
       </div>
       <div id="orders" class="page"><div class="page-title"><div><h1>طلبات الصيانة</h1><p>إضافة وتعديل وحذف وإسناد الطلبات</p></div><div class="actions"><button class="btn red" onclick="clearAllData()">مسح الكل</button></div></div><div class="section-grid"><div class="card"><div class="card-head"><h3 id="orderFormTitle">إضافة طلب</h3><button class="btn light" onclick="clearOrderForm()">تفريغ</button></div><input id="editingOrderId" type="hidden"><div class="danger-note" style="background:#eef6ff;border-color:#bfdbfe;color:#174a8b">طريقة الإسناد: اختر المنطقة ← المدينة ← الشركة ← سيظهر فنيّو الشركة فقط.</div><div class="mini-form"><div class="field"><label>اسم العميل</label><input id="oName"></div><div class="field"><label>رقم الجوال</label><input id="oPhone"></div><div class="field" style="grid-column:1/-1"><label>الخدمات المطلوبة</label><input id="oService" type="hidden"><div id="adminServiceCards" class="admin-service-grid"></div><div id="adminSelectedServices" class="admin-selected-services">لم يتم اختيار خدمات</div><small class="admin-service-hint">يمكن اختيار أكثر من خدمة في نفس الطلب بالضغط على الكروت.</small></div><div class="field"><label>المنطقة</label><select id="oRegion" onchange="fillOrderCities();fillOrderCompaniesByRegion()">
-<option value="المنطقة الجنوبية">المنطقة الجنوبية</option>
-<option value="المنطقة الشرقية">المنطقة الشرقية</option>
+<option value="المنطقة الوسطى">المنطقة الوسطى</option>
+<option value="المنطقة الغربية">المنطقة الغربية</option>
 </select></div>
 <div class="field"><label>المدينة</label><select id="oCity"></select></div><div class="field"><label>السعر</label><input id="oPrice" type="number" min="0" oninput="fpAdminRecalc()"></div><div class="field"><label>الحالة</label><select id="oStatus"><option>جديدة</option><option>تم الإسناد</option><option>الفني تحرك</option><option>قيد التنفيذ</option><option>مكتملة</option><option>متأخرة</option><option>ملغي</option></select></div><div class="field"><label>الشركة المنفذة</label><select id="oCompany" onchange="fillOrderTechsByCompany()"><option value="">كل الشركات</option></select></div><div class="field"><label>الفني</label><select id="oTech"><option value="">بدون إسناد</option></select></div><div class="field"><label>حالة الدفع</label><select id="oPayment"><option>غير مدفوعة</option><option>مدفوعة</option><option>جزئي</option><option>متأخرة</option></select></div><div class="field" style="grid-column:1/-1"><div style="background:#eef5ff;border:1px solid #cfe0fb;border-radius:14px;padding:14px"><h3 style="margin-bottom:12px">💰 التحصيل المالي للطلب — الإدارة</h3><div class="mini-form"><div class="field"><label>كاش (ر.س)</label><input id="oCashCollected" type="number" min="0" step="0.01" value="0" oninput="fpAdminRecalc()"></div><div class="field"><label>شبكة (ر.س)</label><input id="oCardCollected" type="number" min="0" step="0.01" value="0" oninput="fpAdminRecalc()"></div><div class="field"><label>تحويل بنكي (ر.س)</label><input id="oBankCollected" type="number" min="0" step="0.01" value="0" oninput="fpAdminRecalc()"></div><div class="field"><label>المصروفات (ر.س)</label><input id="oExpenseCollected" type="number" min="0" step="0.01" value="0" oninput="fpAdminRecalc()"></div></div><div id="fpAdminTotals" style="margin-top:12px;font-weight:900;line-height:2"></div></div></div><div class="field" style="grid-column:1/-1"><label>العنوان / الملاحظات</label><textarea id="oNotes"></textarea></div></div><br><button class="btn" onclick="saveOrderForm()">حفظ الطلب</button></div><div class="card"><div class="card-head"><h3>كل الطلبات</h3><span class="status new" id="ordersCount">0 طلب</span></div><div id="ordersDiagnostic" class="danger-note" style="margin:10px 0">اضغط فحص الطلبات لمعرفة حالة الربط.</div><button class="btn light" type="button" onclick="diagnoseOrders()" style="margin-bottom:12px">🔎 فحص الطلبات من Supabase</button><button class="btn light" type="button" onclick="resetOrderSearch()" style="margin-bottom:12px">↺ إظهار جميع الطلبات / مسح البحث</button><section class="fp-full-filters" aria-label="فلترة جميع الطلبات"><h3>🔎 فلتر جميع الطلبات</h3><div class="fp-filter-grid"><label>بحث برقم الطلب / العميل / الجوال<input id="fpAllSearch" placeholder="ابحث في الطلبات" oninput="renderOrders()"></label><label>حالة الطلب<select id="fpAllStatus" onchange="renderOrders()"><option value="all">كل الحالات</option><option value="new">جديد / مسند</option><option value="active">قيد التنفيذ</option><option value="finished">انتهى منها الفني</option><option value="completed">مكتمل</option><option value="cancelled">ملغي / مرفوض</option><option value="other">أخرى</option></select></label><label>من تاريخ<input type="date" id="fpAllFrom" onchange="renderOrders()"></label><label>إلى تاريخ<input type="date" id="fpAllTo" onchange="renderOrders()"></label><label>المدينة<input id="fpAllCity" placeholder="كل المدن" oninput="renderOrders()"></label><label>الفني<select id="fpAllTech" onchange="renderOrders()"><option value="">كل الفنيين</option></select></label><label>حالة الدفع<select id="fpAllPayment" onchange="renderOrders()"><option value="">كل طرق الدفع</option><option value="paid">مدفوع</option><option value="unpaid">غير مدفوع</option></select></label></div><div class="fp-filter-footer"><strong id="fpAllFilterCount">جميع الطلبات</strong><button type="button" class="btn light" onclick="fpResetAllFilters()">↺ مسح الفلاتر</button></div></section><div id="allOrders" class="list-card"></div></div></div></div>
 
@@ -275,8 +275,8 @@
               <div class="field"><label>اسم الشركة</label><input id="cName" placeholder="اسم الشركة"></div>
               <div class="field"><label>المنطقة</label>
 <select id="cRegion" onchange="fillCompanyCities()">
-<option value="المنطقة الجنوبية">المنطقة الجنوبية</option>
-<option value="المنطقة الشرقية">المنطقة الشرقية</option>
+<option value="المنطقة الوسطى">المنطقة الوسطى</option>
+<option value="المنطقة الغربية">المنطقة الغربية</option>
 </select></div>
 <div class="field"><label>المدينة</label><select id="cCity"></select></div>
               <div class="field"><label>رقم التواصل</label><input id="cPhone" placeholder="05xxxxxxxx"></div>
@@ -293,8 +293,8 @@
       </div>
 
       <div id="technicians" class="page"><div class="page-title"><div><h1>الفنيين</h1><p>إدارة بيانات الفنيين والتخصصات</p></div></div><div class="section-grid"><div class="card"><div class="card-head"><h3 id="techFormTitle">إضافة فني</h3><button class="btn light" onclick="clearTechForm()">تفريغ</button></div><input id="editingTechId" type="hidden"><div class="mini-form"><div class="field"><label>اسم الفني</label><input id="tName"></div><div class="field"><label>الشركة التابعة لها</label><select id="tCompany"><option value="">بدون شركة</option></select></div><div class="field"><label>رقم جوال الفني (واتساب)</label><input id="tPhone" type="tel" inputmode="tel" dir="ltr" placeholder="05xxxxxxxx" autocomplete="tel"></div><div class="field"><label>التخصصات</label><input id="tSkill" placeholder="مثال: مكيفات، ثلاجات"></div><div class="field"><label>المنطقة</label><select id="tRegion" onchange="fillTechCities()">
-<option value="المنطقة الجنوبية">المنطقة الجنوبية</option>
-<option value="المنطقة الشرقية">المنطقة الشرقية</option>
+<option value="المنطقة الوسطى">المنطقة الوسطى</option>
+<option value="المنطقة الغربية">المنطقة الغربية</option>
 </select></div><div class="field"><label>المدينة</label><select id="tCity"></select></div><div class="field"><label>التقييم</label><input id="tRate" type="number" value="" step=".1" min="0" max="5"></div><div class="field"><label>الحالة</label><select id="tAvailable"><option>متاح للعمل</option><option>مشغول</option><option>إجازة</option><option>موقوف</option></select></div><div class="field"><label>سنوات الخبرة</label><input id="tExp" type="number" value="5"></div></div><br><button class="btn" onclick="saveTechForm()">حفظ الفني</button></div><div class="card"><div class="card-head"><h3>قائمة الفنيين</h3><span class="status paid" id="techCount">0 فني</span></div><div id="techList" class="list-card"></div></div></div></div>
       <div id="assign" class="page"><div class="page-title"><div><h1>الإسناد والمتابعة</h1><p>إسناد الطلبات للفني المناسب وتحديث الحالة</p></div><button class="btn light" onclick="autoAssignAll()">اقتراح تلقائي</button></div><div class="wide-grid"><div class="card"><div class="card-head"><h3>لوحة الحالات</h3></div><div id="assignBoard" class="kanban"></div></div><div class="card"><div class="card-head"><h3>أسرع إسناد</h3></div><div id="quickAssign" class="timeline"></div></div></div></div>
       <div id="companyPortal" class="page">
@@ -580,11 +580,11 @@ function parseServices(value){
 
 /* ===== Operating regions ===== */
 const OPERATING_REGIONS={
-  'المنطقة الجنوبية':['خميس مشيط','أبها','أحد رفيدة','محايل عسير','بيشة','النماص','تنومة','سراة عبيدة','ظهران الجنوب','جازان','صبيا','أبو عريش','صامطة'],
-  'المنطقة الشرقية':['الدمام','الخبر','الظهران','القطيف','الجبيل','الأحساء','رأس تنورة','بقيق','الخفجي']
+  'المنطقة الوسطى':['الرياض','الدرعية','الخرج','المزاحمية','ضرما','حريملاء','شقراء','الدوادمي','القويعية','المجمعة','الزلفي','الغاط','وادي الدواسر','الأفلاج','حوطة بني تميم','بريدة','عنيزة','الرس','البكيرية','المذنب','رياض الخبراء'],
+  'المنطقة الغربية':['جدة','مكة المكرمة','المدينة المنورة','الطائف','رابغ','خليص','الليث','القنفذة','الجموم','بحرة','ينبع','العلا','بدر','خيبر','أملج']
 };
 function fillCitySelect(regionId,cityId,preferred=''){
-  const region=get(regionId)?.value||'المنطقة الجنوبية', el=get(cityId); if(!el)return;
+  const region=get(regionId)?.value||'المنطقة الوسطى', el=get(cityId); if(!el)return;
   const cities=OPERATING_REGIONS[region]||[];
   el.innerHTML=cities.map(c=>`<option value="${safe(c)}">${safe(c)}</option>`).join('');
   if(preferred&&cities.includes(preferred))el.value=preferred;
@@ -593,7 +593,7 @@ function fillCompanyCities(preferred=''){fillCitySelect('cRegion','cCity',prefer
 function fillOrderCities(preferred=''){fillCitySelect('oRegion','oCity',preferred)}
 function fillTechCities(preferred=''){fillCitySelect('tRegion','tCity',preferred)}
 function inferRegion(city){
-  return (OPERATING_REGIONS['المنطقة الشرقية']||[]).includes(city)?'المنطقة الشرقية':'المنطقة الجنوبية';
+  return (OPERATING_REGIONS['المنطقة الغربية']||[]).includes(city)?'المنطقة الغربية':(OPERATING_REGIONS['المنطقة الوسطى']||[]).includes(city)?'المنطقة الوسطى':'';
 }
 
 /* ===== Companies & company technicians ===== */
@@ -611,7 +611,7 @@ async function deleteCompanyCloud(id){if(!sb||!cloudEnabled)return;const {error}
 
 function clearCompanyForm(){
   ['editingCompanyId','cName','cCity','cPhone','cNotes'].forEach(id=>{const e=get(id);if(e)e.value='';});
-  if(get('cStatus')) get('cStatus').value='نشطة'; if(get('cRegion'))get('cRegion').value='المنطقة الجنوبية'; fillCompanyCities();
+  if(get('cStatus')) get('cStatus').value='نشطة'; if(get('cRegion'))get('cRegion').value='المنطقة الوسطى'; fillCompanyCities();
   if(get('companyFormTitle')) get('companyFormTitle').textContent='إضافة شركة';
 }
 async function saveCompanyForm(){
@@ -619,7 +619,7 @@ async function saveCompanyForm(){
   if(!name){toast('اكتب اسم الشركة');return;}
   const arr=getCompanies();
   const edit=get('editingCompanyId')?.value;
-  const row={id:edit||newUuid(),name,region:get('cRegion')?.value||'المنطقة الجنوبية',city:get('cCity')?.value||'',phone:get('cPhone')?.value.trim()||'',status:get('cStatus')?.value||'نشطة',notes:get('cNotes')?.value.trim()||''};
+  const row={id:edit||newUuid(),name,region:get('cRegion')?.value||'المنطقة الوسطى',city:get('cCity')?.value||'',phone:get('cPhone')?.value.trim()||'',status:get('cStatus')?.value||'نشطة',notes:get('cNotes')?.value.trim()||''};
   if(!(await syncCompanyCloud(row)))return;
   const i=arr.findIndex(x=>String(x.id)===String(edit));
   if(i>=0) arr[i]=row; else arr.unshift(row);
@@ -642,8 +642,8 @@ function companyName(id){ const c=getCompanies().find(x=>String(x.id)===String(i
 function renderCompanyOperationsDashboard(){
   const companies=getCompanies(), techs=load(KEYS.TECH), orders=load(KEYS.ORD);
   const active=companies.filter(c=>c.status!=='موقوفة');
-  const south=active.filter(c=>(c.region||inferRegion(c.city||''))==='المنطقة الجنوبية');
-  const east=active.filter(c=>(c.region||inferRegion(c.city||''))==='المنطقة الشرقية');
+  const south=active.filter(c=>(c.region||inferRegion(c.city||''))==='المنطقة الوسطى');
+  const east=active.filter(c=>(c.region||inferRegion(c.city||''))==='المنطقة الغربية');
   if(get('kCompanies'))get('kCompanies').textContent=companies.length;
   if(get('kSouthCompanies'))get('kSouthCompanies').textContent=south.length;
   if(get('kEastCompanies'))get('kEastCompanies').textContent=east.length;
@@ -684,7 +684,7 @@ function fillCompanySelects(){
 }
 
 function fillOrderCompaniesByRegion(preferredCompany=''){
-  const region=get('oRegion')?.value||'المنطقة الجنوبية';
+  const region=get('oRegion')?.value||'المنطقة الوسطى';
   const el=get('oCompany'); if(!el)return;
   const companies=getCompanies().filter(c=>{
     const cr=c.region||inferRegion(c.city||'');
